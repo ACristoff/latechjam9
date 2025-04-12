@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjajvtke3rbxg"
+path="res://.godot/imported/Keyboard Slam.mp3-5a94e3abb12244d3eeeb6f96c7cf2b2a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Keyboard Slam.mp3"
+dest_files=["res://.godot/imported/Keyboard Slam.mp3-5a94e3abb12244d3eeeb6f96c7cf2b2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

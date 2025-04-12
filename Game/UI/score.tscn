@@ -1,7 +1,83 @@
-[gd_scene load_steps=3 format=3 uid="uid://mgqqri0bunjy"]
+[gd_scene load_steps=11 format=3 uid="uid://mgqqri0bunjy"]
 
 [ext_resource type="Script" uid="uid://da60k26ymgnx1" path="res://Game/UI/score.gd" id="1_iypsg"]
+[ext_resource type="Shader" uid="uid://0o2y0raaphr7" path="res://Assets/Shaders/blood.gdshader" id="2_0v4vc"]
 [ext_resource type="Texture2D" uid="uid://ddylp1yaseifu" path="res://Assets/UI/DeadGoblin.png" id="2_iypsg"]
+[ext_resource type="PackedScene" uid="uid://che3pxt8fuc3h" path="res://Assets/Particles/blood_particls.tscn" id="3_6sgao"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s4uko"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bc6q8"]
+noise = SubResource("FastNoiseLite_s4uko")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjuor"]
+resource_local_to_scene = true
+shader = ExtResource("2_0v4vc")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bc6q8")
+shader_parameter/splatter_threshold = 0.03
+shader_parameter/blood_color = Color(0.6, 0, 0, 1)
+shader_parameter/blend_strength = 0.0
+
+[sub_resource type="Animation" id="Animation_0v4vc"]
+resource_name = "blood"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinHead:material:shader_parameter/splatter_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.03, 0.374]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoblinHead:material:shader_parameter/blend_strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_s4uko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinHead:material:shader_parameter/splatter_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.03]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoblinHead:material:shader_parameter/blend_strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bc6q8"]
+_data = {
+&"RESET": SubResource("Animation_s4uko"),
+&"blood": SubResource("Animation_0v4vc")
+}
 
 [node name="Score" type="RigidBody2D"]
 continuous_cd = 1
@@ -9,6 +85,7 @@ script = ExtResource("1_iypsg")
 
 [node name="GoblinHead" type="Sprite2D" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_wjuor")
 position = Vector2(0, -23)
 scale = Vector2(0.145, 0.145)
 texture = ExtResource("2_iypsg")
@@ -16,3 +93,15 @@ texture = ExtResource("2_iypsg")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 0.00413457
 polygon = PackedVector2Array(75.9994, -0.314227, 76.2392, 57.6853, -70.7596, 58.2931, -70.9994, 0.293554)
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_6sgao")]
+
+[node name="BleedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bc6q8")
+}
+
+[connection signal="timeout" from="BleedTimer" to="." method="_on_bleed_timer_timeout"]

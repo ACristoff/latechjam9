@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnd4grscn3fu7"]
+[gd_scene load_steps=23 format=3 uid="uid://bnd4grscn3fu7"]
 
 [ext_resource type="Script" uid="uid://dynqljbl81nh6" path="res://Game/UI/eyes_overlay.gd" id="1_5kjw7"]
 [ext_resource type="Texture2D" uid="uid://0hrimfsjm5fr" path="res://Assets/UI/Eye.png" id="1_6h8ov"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cw47gyifskwa5" path="res://Assets/Shaders/thought_bubble.tscn" id="3_lg1uy"]
 [ext_resource type="Theme" uid="uid://beck8eg6c6gpp" path="res://Assets/Themes/DemonText.tres" id="5_35ci4"]
 [ext_resource type="AudioStream" uid="uid://cfuyh3w8l45by" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_1.mp3" id="7_7qflp"]
-[ext_resource type="Shader" path="res://Assets/Shaders/static.gdshader" id="7_vdb7j"]
+[ext_resource type="Shader" uid="uid://de21x4thoyp6w" path="res://Assets/Shaders/static.gdshader" id="7_vdb7j"]
 [ext_resource type="AudioStream" uid="uid://08ijuxfogdjv" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_2.mp3" id="8_e8ecm"]
 [ext_resource type="AudioStream" uid="uid://c8b340bdjwnii" path="res://Assets/Audio/SFX/grand-rise-and-fall-noise.mp3" id="8_lagbl"]
 [ext_resource type="AudioStream" uid="uid://teq1euupvg17" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_3.mp3" id="9_uf41v"]
 [ext_resource type="AudioStream" uid="uid://dohyat76bq1ti" path="res://Assets/Audio/SFX/HAVE(4).mp3" id="10_3gnw5"]
+[ext_resource type="AudioStream" uid="uid://bjajvtke3rbxg" path="res://Assets/Audio/SFX/Keyboard Slam.mp3" id="12_e8ecm"]
 
 [sub_resource type="Animation" id="Animation_ooq33"]
 resource_name = "Blink"
@@ -366,6 +367,9 @@ pitch_scale = 3.0
 
 [node name="HAVE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_3gnw5")
+
+[node name="DONT" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_e8ecm")
 
 [connection signal="animation_finished" from="Blink" to="." method="_on_blink_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Label/Timer1" to="." method="_on_timer_1_timeout"]

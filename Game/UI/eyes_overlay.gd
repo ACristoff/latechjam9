@@ -13,12 +13,11 @@ extends Node2D
 @onready var left: Area2D = $MouseFollow/EyeNormal/LeftEye
 @onready var right: Area2D = $MouseFollow/EyeNormal/RightEye
 
-
-
 @onready var DEMONSFX = preload("res://Assets/SFX/demon_sound.tscn")
 @onready var demon: AudioStreamPlayer2D = $Demon
 @onready var rising: AudioStreamPlayer2D = $Rising
 @onready var have: AudioStreamPlayer2D = $HAVE
+@onready var dont: AudioStreamPlayer2D = $DONT
 
 var len2
 var len3
@@ -81,7 +80,7 @@ func _on_timer_1_timeout() -> void:
 
 
 func _on_button_pressed() -> void:
-	revelation()
+	dont_have_it()
 	
 func demon_noise():
 	var demonnoise = DEMONSFX.instantiate()
@@ -123,6 +122,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			label_3.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
 			label_3.pivot_offset = label.size/2
 		else:
+			dont.play()
 			label.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
 			label.pivot_offset = label.size/2
 			label_2.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))

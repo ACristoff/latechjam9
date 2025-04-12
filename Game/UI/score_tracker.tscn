@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://w8wk4l8i1m4g"]
+[gd_scene load_steps=9 format=3 uid="uid://w8wk4l8i1m4g"]
 
 [ext_resource type="Script" uid="uid://c8hva42x53u34" path="res://Game/UI/score_tracker.gd" id="1_4bvl0"]
 [ext_resource type="Texture2D" uid="uid://mqo7x8fjl0ll" path="res://Assets/UI/IMG_0679.png" id="2_fl16t"]
+[ext_resource type="Shader" uid="uid://0o2y0raaphr7" path="res://Assets/Shaders/blood.gdshader" id="2_x5ugd"]
 [ext_resource type="FontFile" uid="uid://cjswe5wcv4u3w" path="res://Assets/Fonts/DragonOrder-Eawee.ttf" id="3_5gfgq"]
+[ext_resource type="AudioStream" uid="uid://djnmg1cuvbr2q" path="res://Assets/Audio/SFX/Head on Pike (1).mp3" id="4_ojx5f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x5ugd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uvv4f"]
+noise = SubResource("FastNoiseLite_x5ugd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_regjj"]
+shader = ExtResource("2_x5ugd")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_uvv4f")
+shader_parameter/splatter_threshold = 0.0
+shader_parameter/blood_color = Color(0.6, 0, 0, 1)
+shader_parameter/blend_strength = 1.0
 
 [node name="ScoreTracker" type="Node2D"]
 script = ExtResource("1_4bvl0")
@@ -16,6 +30,7 @@ text = "SCORE +1"
 
 [node name="Pike" type="Sprite2D" parent="."]
 texture_filter = 3
+material = SubResource("ShaderMaterial_regjj")
 position = Vector2(1149, 420)
 scale = Vector2(0.265, 0.265)
 texture = ExtResource("2_fl16t")
@@ -41,5 +56,13 @@ text = "0"
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SoundTime" type="Timer" parent="."]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundTime"]
+stream = ExtResource("4_ojx5f")
+
 [connection signal="pressed" from="ScoreUp" to="." method="_on_score_up_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SoundTime" to="." method="_on_sound_time_timeout"]
