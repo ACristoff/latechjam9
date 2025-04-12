@@ -4,3 +4,9 @@
 
 [node name="PipWorld" type="Node2D"]
 script = ExtResource("1_kj7tt")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(1393, -86, 1392, 772, -80, 774, -81, -87, 0, 0, 0, 720, 1280, 716, 1280, 0, 0, 0, -81, -86)
