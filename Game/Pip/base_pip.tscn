@@ -6,5 +6,5 @@
 [node name="Pip" type="Node2D"]
 script = ExtResource("1_lsf7d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PipSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_x37jf")
