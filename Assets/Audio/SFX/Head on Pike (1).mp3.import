@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djnmg1cuvbr2q"
+path="res://.godot/imported/Head on Pike (1).mp3-7055a9f348e1f90980943efa3a1595f3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Head on Pike (1).mp3"
+dest_files=["res://.godot/imported/Head on Pike (1).mp3-7055a9f348e1f90980943efa3a1595f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
