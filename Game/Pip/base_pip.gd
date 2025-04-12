@@ -2,6 +2,8 @@ class_name Pip extends CharacterBody2D
 
 const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
 
+@onready var sprite: Sprite2D = $PipSprite
+
 @export var speed = 250
 
 var pipType: String = "none"

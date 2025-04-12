@@ -12,6 +12,8 @@ collision_layer = 2
 script = ExtResource("1_lsf7d")
 
 [node name="PipSprite" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
 texture = ExtResource("2_x37jf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
