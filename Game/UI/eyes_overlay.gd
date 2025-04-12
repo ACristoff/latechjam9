@@ -81,6 +81,17 @@ func _on_timer_1_timeout() -> void:
 
 
 func _on_button_pressed() -> void:
+	if Input.is_action_just_pressed("space"):
+		print("test")
+	else:
+		print("testno")
+	var ID = 0
+	for bodies in left.get_overlapping_bodies():
+		bodies.ID= ID
+		print(bodies.ID)
+		ID+=1
+		if bodies.ID == bodies.ID:
+			print("we got the good one!")
 	revelation()
 	
 func demon_noise():
