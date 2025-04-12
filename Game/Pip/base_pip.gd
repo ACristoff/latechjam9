@@ -1,7 +1,31 @@
-class_name Pip extends Node2D
+class_name Pip extends CharacterBody2D
 
-func new_pip(type: String) -> void:
+const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
+
+@export var speed = 50
+
+
+static func new_pip(type: String) -> Pip:
 	print(type)
+	var new_pip: Pip = PIP_SCENE.instantiate()
+	return new_pip
+
+
 
 func _ready():
 	print('hallo')
+	pass
+
+func start(_position, _direction):
+	rotation = _direction
+	position = _position
+	velocity = Vector2(speed, 0).rotated(rotation)
+
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.get_normal())
+		if collision.get_collider().has_method("hit"):
+			collision.get_collider().hit()
+	
+	pass
