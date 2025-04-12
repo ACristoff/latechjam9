@@ -12,9 +12,9 @@ static func new_pip(type: String) -> Pip:
 
 
 
-#func _ready():
-	##print('hallo')
-	#pass
+func _ready():
+	print('hallo')
+	pass
 
 func start(_position, _direction):
 	rotation = _direction
