@@ -42,6 +42,7 @@ import/movie_file=""
 
 2d_physics/layer_1="Walls"
 2d_physics/layer_2="Pips"
+2d_physics/layer_3="eyedetection"
 
 [physics]
 

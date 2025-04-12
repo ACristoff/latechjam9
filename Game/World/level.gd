@@ -3,6 +3,8 @@ extends Node2D
 @export var civilian_count = 8
 @export var goblin_type = 'goblin'
 
+@export var riddle = "The quick brown fox jumps over the lazy dog"
+
 @export var speed_difficulty = 0
 #@export var speed_randomness = 0.5
 
