@@ -38,6 +38,11 @@ window/stretch/mode="canvas_items"
 
 import/movie_file=""
 
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Pips"
+
 [physics]
 
 common/physics_ticks_per_second=180
