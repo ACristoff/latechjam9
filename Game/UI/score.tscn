@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://mgqqri0bunjy"]
+
+[ext_resource type="Texture2D" uid="uid://co2iyww4n05hv" path="res://Assets/UI/GoblinHead.png" id="1_1t07t"]
+[ext_resource type="Script" uid="uid://da60k26ymgnx1" path="res://Game/UI/score.gd" id="1_iypsg"]
+
+[node name="Score" type="RigidBody2D"]
+continuous_cd = 1
+script = ExtResource("1_iypsg")
+
+[node name="GoblinHead" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("1_1t07t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.00413457
+polygon = PackedVector2Array(75.9994, -0.314227, 76.2392, 57.6853, -70.7596, 58.2931, -70.9994, 0.293554)
