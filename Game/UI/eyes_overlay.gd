@@ -9,6 +9,9 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $CanvasLayer/Label2/AnimationPlayer
 @onready var blink: AnimationPlayer = $Blink
 @onready var thought_bubble: Control = $CanvasLayer/ThoughtBubble
+@onready var mouse_follow: Sprite2D = $MouseFollow
+
+
 
 
 
@@ -20,6 +23,8 @@ extends Node2D
 var len2
 var len3
 var have_mode = true
+var target_pos
+var speed = 90
 
 func _ready() -> void:
 	label.add_theme_font_override("font", load("res://Assets/Fonts/runic.otf"))
@@ -131,3 +136,10 @@ func revelation():
 func _on_blink_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Close":
 		thought_bubble.begin()
+		
+func _process(delta: float) -> void:
+	var mouse_pos = get_global_mouse_position().clamp(Vector2(600, 130), Vector2(680, 620))
+	print(mouse_pos)
+	#mouse_follow.global_position = mouse_pos
+	mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
+	
