@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl8hfpjxma78j"]
+[gd_scene load_steps=4 format=3 uid="uid://dl8hfpjxma78j"]
 
 [ext_resource type="Script" uid="uid://byfco1g7ij4s" path="res://Game/Pip/base_pip.gd" id="1_lsf7d"]
 [ext_resource type="Texture2D" uid="uid://dkwbp1wa2kgvq" path="res://icon.svg" id="2_x37jf"]
 
-[node name="Pip" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad3bx"]
+radius = 63.0
+height = 126.0
+
+[node name="Pip" type="CharacterBody2D"]
 script = ExtResource("1_lsf7d")
 
 [node name="PipSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_x37jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ad3bx")
