@@ -4,9 +4,10 @@ const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
 
 
 
-func new_pip(type: String) -> void:
+static func new_pip(type: String) -> Pip:
 	print(type)
 	var new_pip: Pip = PIP_SCENE.instantiate()
+	return new_pip
 
 
 
