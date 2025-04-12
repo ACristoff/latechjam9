@@ -24,7 +24,7 @@ var len2
 var len3
 var have_mode = true
 var target_pos
-var speed = 90
+var speed = 250
 
 func _ready() -> void:
 	label.add_theme_font_override("font", load("res://Assets/Fonts/runic.otf"))
@@ -138,8 +138,10 @@ func _on_blink_animation_finished(anim_name: StringName) -> void:
 		thought_bubble.begin()
 		
 func _process(delta: float) -> void:
-	var mouse_pos = get_global_mouse_position().clamp(Vector2(600, 130), Vector2(680, 620))
-	print(mouse_pos)
-	#mouse_follow.global_position = mouse_pos
-	mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
+	var mouse_pos = get_global_mouse_position().clamp(Vector2(570, 120), Vector2(710, 630))
+	print(mouse_follow.global_position, mouse_pos)
+	var dejitter = 2
+	if Vector2i(mouse_follow.global_position).x > Vector2i(mouse_pos).x + dejitter|| Vector2i(mouse_follow.global_position).x < Vector2i(mouse_pos).x - dejitter || Vector2i(mouse_follow.global_position).y > Vector2i(mouse_pos).y + dejitter || Vector2i(mouse_follow.global_position).y < Vector2i(mouse_pos).y - dejitter:
+		
+		mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
 	

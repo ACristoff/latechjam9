@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm2es187n4lwv"]
+[gd_scene load_steps=3 format=3 uid="uid://bm2es187n4lwv"]
 
 [ext_resource type="Script" uid="uid://bpfjw7kwuxr32" path="res://Game/World/level.gd" id="1_kj7tt"]
+[ext_resource type="PackedScene" uid="uid://bnd4grscn3fu7" path="res://Game/eyes_overlay.tscn" id="2_i48qp"]
 
 [node name="PipWorld" type="Node2D"]
 script = ExtResource("1_kj7tt")
+
+[node name="EyesOverlay" parent="." instance=ExtResource("2_i48qp")]
+z_index = 100
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_mask = 3

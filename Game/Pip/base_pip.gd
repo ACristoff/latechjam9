@@ -2,7 +2,7 @@ class_name Pip extends CharacterBody2D
 
 const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
 
-@export var speed = 50
+@export var speed = 250
 
 
 static func new_pip(type: String) -> Pip:
@@ -13,7 +13,7 @@ static func new_pip(type: String) -> Pip:
 
 
 func _ready():
-	print('hallo')
+	print('hallo', speed)
 	pass
 
 func start(_position, _direction):
@@ -27,5 +27,3 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.get_normal())
 		if collision.get_collider().has_method("hit"):
 			collision.get_collider().hit()
-	
-	pass
