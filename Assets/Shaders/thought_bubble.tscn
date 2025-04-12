@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw47gyifskwa5"]
+[gd_scene load_steps=21 format=3 uid="uid://cw47gyifskwa5"]
 
 [ext_resource type="Shader" uid="uid://q2n1gnmmelap" path="res://Assets/Shaders/thoughtbubble.gdshader" id="1_oc8uh"]
+[ext_resource type="Script" uid="uid://ns318mu3v4wn" path="res://Game/UI/thought_bubble.gd" id="2_f6kd6"]
+[ext_resource type="PackedScene" uid="uid://dibhevky1v6vc" path="res://Assets/Particles/wind.tscn" id="3_0bgwi"]
+[ext_resource type="FontFile" uid="uid://cl2ijrhyif4vb" path="res://Assets/Fonts/GilligansIsland-eJPm.ttf" id="4_7k211"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f6kd6"]
 shader = ExtResource("1_oc8uh")
 shader_parameter/intensity = 1.0
 shader_parameter/use_custom_texture = 0.0
-shader_parameter/clouds_speed = 10.0
+shader_parameter/clouds_speed = 20.0
 shader_parameter/clouds_direction = 0.26
 shader_parameter/clouds_scale = 1.41
 shader_parameter/clouds_cutoff = 1.0
@@ -34,6 +37,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 0.38]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wind:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.498039)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/clouds_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 20.0]
+}
 
 [sub_resource type="Animation" id="Animation_f6kd6"]
 length = 0.001
@@ -48,6 +87,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wind:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:material:shader_parameter/clouds_speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0bgwi"]
@@ -106,6 +181,42 @@ scale_curve = SubResource("CurveTexture_0bgwi")
 color_ramp = SubResource("GradientTexture1D_12p6u")
 color_initial_ramp = SubResource("GradientTexture1D_uaqro")
 
+[sub_resource type="Animation" id="Animation_7k211"]
+resource_name = "showtext"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(3.24901, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1.325), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k30do"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7k2af"]
+_data = {
+&"RESET": SubResource("Animation_k30do"),
+&"showtext": SubResource("Animation_7k211")
+}
+
 [node name="ThoughtBubble" type="Control"]
 material = SubResource("ShaderMaterial_f6kd6")
 layout_mode = 3
@@ -114,6 +225,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_f6kd6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 use_parent_material = true
@@ -126,9 +238,9 @@ offset_bottom = 406.0
 libraries = {
 &"": SubResource("AnimationLibrary_0bgwi")
 }
-autoplay = "Begin"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1277, -28)
 amount = 100
 lifetime = 5.0
@@ -136,3 +248,39 @@ preprocess = 2.0
 randomness = 1.0
 trail_lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_k30do")
+
+[node name="Wind" parent="." instance=ExtResource("3_0bgwi")]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 130.0
+offset_bottom = -511.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(640, 39)
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.215, 0.3, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("4_7k211")
+theme_override_font_sizes/font_size = 71
+text = "my skin is sensitive. Who am I?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ShowText" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7k2af")
+}
+
+[node name="ShowTextTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShowTextTimer" to="." method="_on_show_text_timer_timeout"]

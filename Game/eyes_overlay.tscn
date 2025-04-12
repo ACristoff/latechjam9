@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnd4grscn3fu7"]
+[gd_scene load_steps=22 format=3 uid="uid://bnd4grscn3fu7"]
 
+[ext_resource type="Script" uid="uid://dynqljbl81nh6" path="res://Game/UI/eyes_overlay.gd" id="1_5kjw7"]
 [ext_resource type="Texture2D" uid="uid://0hrimfsjm5fr" path="res://Assets/UI/Eye.png" id="1_6h8ov"]
 [ext_resource type="Texture2D" uid="uid://fqv8vlp7x67j" path="res://Assets/UI/Eyelid.png" id="2_ooq33"]
 [ext_resource type="PackedScene" uid="uid://cw47gyifskwa5" path="res://Assets/Shaders/thought_bubble.tscn" id="3_lg1uy"]
-[ext_resource type="PackedScene" uid="uid://dibhevky1v6vc" path="res://Assets/Particles/wind.tscn" id="4_khmkl"]
 [ext_resource type="Theme" uid="uid://beck8eg6c6gpp" path="res://Assets/Themes/DemonText.tres" id="5_35ci4"]
+[ext_resource type="AudioStream" uid="uid://cfuyh3w8l45by" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_1.mp3" id="7_7qflp"]
+[ext_resource type="Shader" uid="uid://de21x4thoyp6w" path="res://Assets/Shaders/static.gdshader" id="7_vdb7j"]
+[ext_resource type="AudioStream" uid="uid://08ijuxfogdjv" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_2.mp3" id="8_e8ecm"]
+[ext_resource type="AudioStream" uid="uid://c8b340bdjwnii" path="res://Assets/Audio/SFX/grand-rise-and-fall-noise.mp3" id="8_lagbl"]
+[ext_resource type="AudioStream" uid="uid://teq1euupvg17" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_3.mp3" id="9_uf41v"]
+[ext_resource type="AudioStream" uid="uid://dohyat76bq1ti" path="res://Assets/Audio/SFX/HAVE(4).mp3" id="10_3gnw5"]
 
 [sub_resource type="Animation" id="Animation_ooq33"]
 resource_name = "Blink"
@@ -35,16 +41,148 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1, 0.46)]
+}
+
+[sub_resource type="Animation" id="Animation_3gnw5"]
+resource_name = "Close"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EyelidNormal:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.42), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7qflp"]
+resource_name = "Open"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EyelidNormal:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.45)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khmkl"]
 _data = {
 &"Blink": SubResource("Animation_ooq33"),
+&"Close": SubResource("Animation_3gnw5"),
+&"Open": SubResource("Animation_7qflp"),
 &"RESET": SubResource("Animation_lg1uy")
 }
 
+[sub_resource type="Animation" id="Animation_oy2lk"]
+resource_name = "Reveal"
+length = 1.67
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.66667),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.205, 1.205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.66667),
+"transitions": PackedFloat32Array(3.13834, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0.0166664, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Static:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.223529)]
+}
+
+[sub_resource type="Animation" id="Animation_lagbl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Static:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lagbl"]
+_data = {
+&"RESET": SubResource("Animation_lagbl"),
+&"Reveal": SubResource("Animation_oy2lk")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gnw5"]
+shader = ExtResource("7_vdb7j")
+shader_parameter/amount = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lagbl"]
+streams_count = 3
+stream_0/stream = ExtResource("7_7qflp")
+stream_1/stream = ExtResource("8_e8ecm")
+stream_2/stream = ExtResource("9_uf41v")
+
 [node name="EyesOverlay" type="Node2D"]
+script = ExtResource("1_5kjw7")
 
 [node name="EyeNormal" type="Node2D" parent="."]
 
@@ -60,6 +198,7 @@ scale = Vector2(0.5, -0.5)
 texture = ExtResource("1_6h8ov")
 
 [node name="EyelidNormal" type="Node2D" parent="."]
+scale = Vector2(1, 0.46)
 
 [node name="Eyelid" type="Sprite2D" parent="EyelidNormal"]
 position = Vector2(650, 360)
@@ -82,6 +221,7 @@ offset_left = -1299.0
 offset_top = -984.0
 offset_right = 53.0
 offset_bottom = 1725.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
@@ -89,6 +229,7 @@ offset_left = -1299.0
 offset_top = 638.0
 offset_right = 2090.0
 offset_bottom = 1725.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
@@ -96,6 +237,7 @@ offset_left = 1257.0
 offset_top = -984.0
 offset_right = 2609.0
 offset_bottom = 1725.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
@@ -103,48 +245,101 @@ offset_left = -206.0
 offset_top = -984.0
 offset_right = 2609.0
 offset_bottom = -55.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="ThoughtBubble" parent="." instance=ExtResource("3_lg1uy")]
-
-[node name="Wind" parent="." instance=ExtResource("4_khmkl")]
-modulate = Color(1, 1, 1, 0.498039)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -405.0
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 235.0
 offset_top = 37.0
-offset_right = 405.0
-offset_bottom = 691.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = -45
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1045.0
+offset_bottom = 240.0
+pivot_offset = Vector2(405, 101)
 theme = ExtResource("5_35ci4")
 theme_override_font_sizes/font_size = 180
 text = "The Eyes"
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
-[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+[node name="Timer1" type="Timer" parent="CanvasLayer/Label"]
+wait_time = 0.1
+
+[node name="Button" type="Button" parent="CanvasLayer/Label"]
+layout_mode = 0
+offset_left = -190.0
+offset_top = 533.0
+offset_right = -16.0
+offset_bottom = 645.0
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 235.0
+offset_top = 220.0
+offset_right = 1045.0
+offset_bottom = 558.0
+pivot_offset = Vector2(405, 169)
 theme = ExtResource("5_35ci4")
 theme_override_font_sizes/font_size = 300
 text = "HAVE"
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
-[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
+[node name="Timer2" type="Timer" parent="CanvasLayer/Label2"]
+wait_time = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Label2"]
+libraries = {
+&"": SubResource("AnimationLibrary_lagbl")
+}
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 235.0
+offset_top = 488.0
+offset_right = 1045.0
+offset_bottom = 691.0
+pivot_offset = Vector2(405, 101)
 theme = ExtResource("5_35ci4")
 theme_override_font_sizes/font_size = 180
 text = "IT"
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Timer3" type="Timer" parent="CanvasLayer/Label3"]
+wait_time = 0.1
+
+[node name="Static" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_3gnw5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ThoughtBubble" parent="CanvasLayer" instance=ExtResource("3_lg1uy")]
+mouse_filter = 2
+
+[node name="Demon" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_lagbl")
+pitch_scale = 0.7
+
+[node name="Rising" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lagbl")
+pitch_scale = 3.0
+
+[node name="HAVE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_3gnw5")
+
+[connection signal="animation_finished" from="Blink" to="." method="_on_blink_animation_finished"]
+[connection signal="timeout" from="CanvasLayer/Label/Timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="pressed" from="CanvasLayer/Label/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="CanvasLayer/Label2/Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/Label2/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="CanvasLayer/Label3/Timer3" to="." method="_on_timer_3_timeout"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqrkgr3gwtr0d"]
+
+[ext_resource type="AudioStream" uid="uid://cfuyh3w8l45by" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_1.mp3" id="1_2mvwq"]
+[ext_resource type="Script" uid="uid://ddw5mw4qjoo3i" path="res://Assets/SFX/demon_sound.gd" id="1_mkpkb"]
+[ext_resource type="AudioStream" uid="uid://08ijuxfogdjv" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_2.mp3" id="2_mkpkb"]
+[ext_resource type="AudioStream" uid="uid://teq1euupvg17" path="res://Assets/Audio/SFX/EYES_DEMON_WHISPER_3.mp3" id="3_0ve76"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8f3uk"]
+streams_count = 3
+stream_0/stream = ExtResource("1_2mvwq")
+stream_1/stream = ExtResource("2_mkpkb")
+stream_2/stream = ExtResource("3_0ve76")
+
+[node name="DemonSound" type="Node2D"]
+script = ExtResource("1_mkpkb")
+
+[node name="Demon" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8f3uk")
+pitch_scale = 0.7
+autoplay = true
+
+[connection signal="finished" from="Demon" to="." method="_on_demon_finished"]

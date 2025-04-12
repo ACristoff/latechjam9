@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://w8wk4l8i1m4g"]
+[gd_scene load_steps=4 format=3 uid="uid://w8wk4l8i1m4g"]
 
 [ext_resource type="Script" uid="uid://c8hva42x53u34" path="res://Game/UI/score_tracker.gd" id="1_4bvl0"]
 [ext_resource type="Texture2D" uid="uid://mqo7x8fjl0ll" path="res://Assets/UI/IMG_0679.png" id="2_fl16t"]
+[ext_resource type="FontFile" uid="uid://cjswe5wcv4u3w" path="res://Assets/Fonts/DragonOrder-Eawee.ttf" id="3_5gfgq"]
 
 [node name="ScoreTracker" type="Node2D"]
 script = ExtResource("1_4bvl0")
@@ -33,6 +34,7 @@ offset_left = 843.0
 offset_top = 524.0
 offset_right = 993.0
 offset_bottom = 690.0
+theme_override_fonts/font = ExtResource("3_5gfgq")
 theme_override_font_sizes/font_size = 121
 text = "0"
 
