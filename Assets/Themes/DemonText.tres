@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://beck8eg6c6gpp"]
+
+[ext_resource type="FontFile" uid="uid://cn56pfhjgonhs" path="res://Assets/Fonts/runic.otf" id="1_gl2h1"]
+
+[resource]
+Label/fonts/font = ExtResource("1_gl2h1")

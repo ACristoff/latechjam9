@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnd4grscn3fu7"]
+[gd_scene load_steps=9 format=3 uid="uid://bnd4grscn3fu7"]
 
 [ext_resource type="Texture2D" uid="uid://0hrimfsjm5fr" path="res://Assets/UI/Eye.png" id="1_6h8ov"]
 [ext_resource type="Texture2D" uid="uid://fqv8vlp7x67j" path="res://Assets/UI/Eyelid.png" id="2_ooq33"]
+[ext_resource type="PackedScene" uid="uid://cw47gyifskwa5" path="res://Assets/Shaders/thought_bubble.tscn" id="3_lg1uy"]
+[ext_resource type="PackedScene" uid="uid://dibhevky1v6vc" path="res://Assets/Particles/wind.tscn" id="4_khmkl"]
+[ext_resource type="Theme" uid="uid://beck8eg6c6gpp" path="res://Assets/Themes/DemonText.tres" id="5_35ci4"]
 
 [sub_resource type="Animation" id="Animation_ooq33"]
 resource_name = "Blink"
@@ -73,3 +76,75 @@ texture = ExtResource("2_ooq33")
 libraries = {
 &"": SubResource("AnimationLibrary_khmkl")
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1299.0
+offset_top = -984.0
+offset_right = 53.0
+offset_bottom = 1725.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -1299.0
+offset_top = 638.0
+offset_right = 2090.0
+offset_bottom = 1725.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1257.0
+offset_top = -984.0
+offset_right = 2609.0
+offset_bottom = 1725.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -206.0
+offset_top = -984.0
+offset_right = 2609.0
+offset_bottom = -55.0
+color = Color(0, 0, 0, 1)
+
+[node name="ThoughtBubble" parent="." instance=ExtResource("3_lg1uy")]
+
+[node name="Wind" parent="." instance=ExtResource("4_khmkl")]
+modulate = Color(1, 1, 1, 0.498039)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -405.0
+offset_top = 37.0
+offset_right = 405.0
+offset_bottom = 691.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -45
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_35ci4")
+theme_override_font_sizes/font_size = 180
+text = "The Eyes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_35ci4")
+theme_override_font_sizes/font_size = 300
+text = "HAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_35ci4")
+theme_override_font_sizes/font_size = 180
+text = "IT"
+horizontal_alignment = 1
+vertical_alignment = 1
