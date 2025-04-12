@@ -4,10 +4,13 @@ const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
 
 @export var speed = 250
 
+var pipType: String = "none"
+
 
 static func new_pip(type: String) -> Pip:
 	print(type)
 	var new_pip: Pip = PIP_SCENE.instantiate()
+	new_pip.pipType = type
 	return new_pip
 
 

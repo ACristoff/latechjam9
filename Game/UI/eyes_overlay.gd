@@ -10,8 +10,8 @@ extends Node2D
 @onready var blink: AnimationPlayer = $Blink
 @onready var thought_bubble: Control = $CanvasLayer/ThoughtBubble
 @onready var mouse_follow: Sprite2D = $MouseFollow
-
-
+@onready var left: Area2D = $MouseFollow/EyeNormal/LeftEye
+@onready var right: Area2D = $MouseFollow/EyeNormal/RightEye
 
 
 
