@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpfjw7kwuxr32" path="res://Game/World/level.gd" id="1_kj7tt"]
 [ext_resource type="PackedScene" uid="uid://bnd4grscn3fu7" path="res://Game/eyes_overlay.tscn" id="2_i48qp"]
-[ext_resource type="Shader" uid="uid://camgv7bnguxin" path="res://Game/World/rain.gdshader" id="3_x84rt"]
+[ext_resource type="Shader" path="res://Game/World/rain.gdshader" id="3_x84rt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3v6v4"]
 shader = ExtResource("3_x84rt")
@@ -39,3 +39,5 @@ offset_top = -27.0
 offset_right = 1291.0
 offset_bottom = 741.0
 color = Color(1, 1, 1, 0)
+
+[connection signal="eyes_open" from="EyesOverlay" to="." method="_on_eyes_overlay_eyes_open"]

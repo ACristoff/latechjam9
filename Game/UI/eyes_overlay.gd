@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Eyes
 
+signal eyes_open
+
 @onready var label: Label = $CanvasLayer/Label
 @onready var label_2: Label = $CanvasLayer/Label2
 @onready var label_3: Label = $CanvasLayer/Label3
@@ -116,6 +118,7 @@ func _on_timer_3_timeout() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "End":
 		blink.play("Open")
+		eyes_open.emit()
 	if anim_name == "Reveal":
 		if have_mode == true:
 			have.play()
