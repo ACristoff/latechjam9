@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://r01n6g46e84a"]
 
 [ext_resource type="Script" uid="uid://d3cu4q4fr8qsi" path="res://Game/Lib/Game_Manager/game_manager.gd" id="1_uo502"]
-[ext_resource type="PackedScene" uid="uid://5ooenep8ptyj" path="res://Game/UI/Splash_Screen/splash_screen.tscn" id="2_ymkn1"]
+[ext_resource type="PackedScene" uid="uid://w8wk4l8i1m4g" path="res://Game/UI/score_tracker.tscn" id="3_q8531"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
@@ -15,4 +15,5 @@ layer = 99
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="Splash" parent="Transitions" instance=ExtResource("2_ymkn1")]
+[node name="ScoreTracker" parent="." instance=ExtResource("3_q8531")]
+visible = false

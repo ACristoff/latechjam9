@@ -35,6 +35,7 @@ class_name Game_Manager
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.game_state_changed.connect(change_scene.bind())
+	SignalBus.game_state_changed.emit("Main")
 
 func change_scene(new_state: String):
 	if debug_mode == true:

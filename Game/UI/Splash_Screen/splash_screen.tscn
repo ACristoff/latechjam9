@@ -120,7 +120,7 @@ texture = ExtResource("2_33wos")
 
 [node name="Splash_Anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_05s03")
+&"": SubResource("AnimationLibrary_05s03")
 }
 autoplay = "splash"
 
