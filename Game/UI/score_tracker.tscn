@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://w8wk4l8i1m4g"]
+[gd_scene load_steps=11 format=3 uid="uid://w8wk4l8i1m4g"]
 
 [ext_resource type="Script" uid="uid://c8hva42x53u34" path="res://Game/UI/score_tracker.gd" id="1_4bvl0"]
 [ext_resource type="Texture2D" uid="uid://mqo7x8fjl0ll" path="res://Assets/UI/IMG_0679.png" id="2_fl16t"]
@@ -22,26 +22,14 @@ shader_parameter/blend_strength = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mgk4g"]
 shader = ExtResource("4_uvv4f")
 shader_parameter/fire_color = Color(0.270634, 0.586866, 0.288545, 1)
-shader_parameter/fire_power_factor = 19.68
-shader_parameter/fire_intensity = 3.03
-shader_parameter/fire_start = 0.99
-shader_parameter/ball_size = 0.965
-shader_parameter/roughness = 0.465
+shader_parameter/fire_power_factor = 20.0
+shader_parameter/fire_intensity = 2.785
+shader_parameter/fire_start = 0.955
+shader_parameter/ball_size = 1.005
+shader_parameter/roughness = 0.355
 shader_parameter/detail = 6
 shader_parameter/scale = 4.0
 shader_parameter/lacunarity = 2.0
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_uvv4f"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mgk4g"]
-noise = SubResource("FastNoiseLite_uvv4f")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lu61s"]
-shader = ExtResource("2_x5ugd")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_mgk4g")
-shader_parameter/splatter_threshold = 0.0
-shader_parameter/blood_color = Color(0.6, 0, 0, 1)
-shader_parameter/blend_strength = 1.0
 
 [node name="ScoreTracker" type="Node2D"]
 script = ExtResource("1_4bvl0")
@@ -69,24 +57,27 @@ polygon = PackedVector2Array(96, -363, 96, 542, -114, 542, -114, -376, -90, -376
 [node name="HeadSpawn" type="Marker2D" parent="."]
 position = Vector2(1145, -157)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Fire" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_mgk4g")
-offset_left = 1176.0
+offset_left = 1196.0
 offset_top = 178.0
-offset_right = 1673.0
+offset_right = 1693.0
 offset_bottom = 748.0
 rotation = 1.5708
 
 [node name="Label" type="Label" parent="."]
-material = SubResource("ShaderMaterial_lu61s")
 offset_left = 841.0
 offset_top = 512.0
 offset_right = 991.0
 offset_bottom = 679.0
-theme_override_colors/font_outline_color = Color(0.591798, 0, 0.273408, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.1725, 0.23, 0, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("3_5gfgq")
 theme_override_font_sizes/font_size = 121
 text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
