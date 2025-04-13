@@ -114,6 +114,8 @@ func _on_timer_3_timeout() -> void:
 		
 		
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "End":
+		blink.play("Open")
 	if anim_name == "Reveal":
 		if have_mode == true:
 			have.play()
