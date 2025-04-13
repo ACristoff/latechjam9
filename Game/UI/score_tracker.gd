@@ -26,7 +26,7 @@ func _ready() -> void:
 	threshold = blood_material.get_shader_parameter("splatter_threshold")
 	fire_material = fire.material as ShaderMaterial
 	firepowerthreshold = fire_material.get_shader_parameter("fire_power_factor")
-	
+	SignalBus.add_score.connect(add_score.bind())
 
 func add_score():
 	score_true += 1

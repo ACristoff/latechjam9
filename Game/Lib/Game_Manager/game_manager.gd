@@ -10,7 +10,7 @@ class_name Game_Manager
 
 #Activates or deactivates the debug mode
 @export var debug_mode: bool = false
-
+@onready var score = $ScoreTracker
 #Where all menu UIs are rendered
 #Set to run always
 @onready var menu_ui: CanvasLayer = $MenuUI
@@ -32,7 +32,12 @@ class_name Game_Manager
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.game_state_changed.connect(change_scene.bind())
+	SignalBus.show_score.connect(on_show_score.bind())
 	SignalBus.game_state_changed.emit("Main")
+
+func on_show_score():
+	score.visible = true
+	pass
 
 func change_scene(new_state: String):
 	if debug_mode == true:

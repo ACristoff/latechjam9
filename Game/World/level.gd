@@ -49,6 +49,7 @@ func start_game():
 	new_goblin.collision.rotation = -random_direction
 	#new_goblin.sprite_parent.modulate = Color.GREEN
 	new_goblin.riddled(random_riddle)
+	print(random_riddle, riddles[random_riddle])
 	all_pips.append(new_goblin)
 	game_active = true
 	pass
@@ -57,6 +58,7 @@ func start_game():
 func _ready():
 	eyes.thought_bubble.debug_phrase = riddles[random_riddle]
 	eyes.revelation()
+	#SignalBus.add_score.connect( )
 	pass
 
 
@@ -77,10 +79,7 @@ func check_for_goblin(arr):
 
 func _on_eyes_overlay_eyes_open():
 	start_game()
-	pass # Replace with function body.
 
 func _on_end_timer_timeout():
 	eyes.blink.play("Close")
 	eyes.decider()
-	#eyes.have_it()
-	pass # Replace with function body.

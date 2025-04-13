@@ -115,20 +115,20 @@ func _physics_process(delta):
 
 func riddled(type):
 	match type:
-		1:
+		0:
 			eyes_sprite.texture = riddles[0]
 			eyebrows_sprite.texture = riddles[0]
 			mouth_sprite.texture = riddles[0]
-		2:
+		1:
 			blush_sprite.texture = riddles[1]
-		3: 
+		2: 
 			eyebrows_sprite.texture = riddles[2]
 			eyes_sprite.texture = riddles[2]
-		4:
+		3:
 			blush_sprite.texture = riddles[3]
-		5:
+		4:
 			ears_sprite.texture = riddles[4]
-		6:
+		5:
 			hair_sprite.texture = riddles[5]
 	pass
 

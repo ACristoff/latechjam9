@@ -14,7 +14,8 @@ layer = 99
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="GameHost" type="Node2D" parent="."]
-
 [node name="ScoreTracker" parent="." instance=ExtResource("3_q8531")]
 visible = false
+z_index = 101
+
+[node name="GameHost" type="Node2D" parent="."]

@@ -141,6 +141,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			await get_tree().create_timer(2).timeout
 			canvas_layer.visible = false
 			show_score()
+			SignalBus.add_score.emit()
 		else:
 			dont.play()
 			label.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
@@ -154,6 +155,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			show_score()
 
 func show_score():
+	SignalBus.show_score.emit()
 	pass
 
 func revelation():
