@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bnd4grscn3fu7" path="res://Game/eyes_overlay.tscn" id="2_i48qp"]
 
 [node name="PipWorld" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_kj7tt")
 
 [node name="EyesOverlay" parent="." instance=ExtResource("2_i48qp")]
