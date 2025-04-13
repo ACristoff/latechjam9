@@ -18,6 +18,33 @@ shader_parameter/splatter_threshold = 0.03
 shader_parameter/blood_color = Color(0.6, 0, 0, 1)
 shader_parameter/blend_strength = 0.0
 
+[sub_resource type="Animation" id="Animation_s4uko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinHead:material:shader_parameter/splatter_threshold")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.03]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoblinHead:material:shader_parameter/blend_strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_0v4vc"]
 resource_name = "blood"
 length = 0.2
@@ -46,33 +73,6 @@ tracks/1/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_s4uko"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GoblinHead:material:shader_parameter/splatter_threshold")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.03]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GoblinHead:material:shader_parameter/blend_strength")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bc6q8"]
 _data = {
 &"RESET": SubResource("Animation_s4uko"),
@@ -95,6 +95,7 @@ rotation = 0.00413457
 polygon = PackedVector2Array(75.9994, -0.314227, 76.2392, 57.6853, -70.7596, 58.2931, -70.9994, 0.293554)
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("3_6sgao")]
+position = Vector2(0, -97)
 
 [node name="BleedTimer" type="Timer" parent="."]
 one_shot = true
