@@ -22,3 +22,4 @@ func _on_quit_pressed():
 func _on_start_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Start":
 		SignalBus.game_state_changed.emit("Start")
+		queue_free()

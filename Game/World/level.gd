@@ -5,6 +5,8 @@ extends Node2D
 
 @export var riddle = "The quick brown fox jumps over the lazy dog"
 
+@export var riddles = []
+
 @export var speed_difficulty = 0
 #@export var speed_randomness = 0.5
 

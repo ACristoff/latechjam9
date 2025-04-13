@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8hva42x53u34" path="res://Game/UI/score_tracker.gd" id="1_4bvl0"]
 [ext_resource type="Texture2D" uid="uid://mqo7x8fjl0ll" path="res://Assets/UI/IMG_0679.png" id="2_fl16t"]
-[ext_resource type="Shader" uid="uid://0o2y0raaphr7" path="res://Assets/Shaders/blood.gdshader" id="2_x5ugd"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blood.gdshader" id="2_x5ugd"]
 [ext_resource type="FontFile" uid="uid://cjswe5wcv4u3w" path="res://Assets/Fonts/DragonOrder-Eawee.ttf" id="3_5gfgq"]
 [ext_resource type="AudioStream" uid="uid://djnmg1cuvbr2q" path="res://Assets/Audio/SFX/Head on Pike (1).mp3" id="4_ojx5f"]
 [ext_resource type="Shader" uid="uid://u2dwbqcvgxi2" path="res://Game/UI/Fire.gdshader" id="4_uvv4f"]

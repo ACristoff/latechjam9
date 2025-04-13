@@ -6,7 +6,6 @@
 [node name="GameManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_uo502")
-debug_mode = true
 
 [node name="MenuUI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -14,6 +13,8 @@ layer = 99
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 100
+
+[node name="GameHost" type="Node2D" parent="."]
 
 [node name="ScoreTracker" parent="." instance=ExtResource("3_q8531")]
 visible = false
