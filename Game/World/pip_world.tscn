@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm2es187n4lwv"]
+[gd_scene load_steps=5 format=3 uid="uid://bm2es187n4lwv"]
 
 [ext_resource type="Script" uid="uid://bpfjw7kwuxr32" path="res://Game/World/level.gd" id="1_kj7tt"]
 [ext_resource type="PackedScene" uid="uid://bnd4grscn3fu7" path="res://Game/eyes_overlay.tscn" id="2_i48qp"]
+[ext_resource type="Shader" uid="uid://camgv7bnguxin" path="res://Game/World/rain.gdshader" id="3_x84rt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3v6v4"]
+shader = ExtResource("3_x84rt")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 0.252
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.1
+shader_parameter/rain_color = Color(0.61263, 0.866077, 0.748849, 1)
+shader_parameter/base_rain_speed = 0.358
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.11
 
 [node name="PipWorld" type="Node2D"]
 y_sort_enabled = true
@@ -15,3 +30,12 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(1393, -86, 1392, 772, -80, 774, -81, -87, 0, 0, 0, 720, 1280, 716, 1280, 0, 0, 0, -81, -86)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_3v6v4")
+offset_left = -31.0
+offset_top = -27.0
+offset_right = 1291.0
+offset_bottom = 741.0
+color = Color(1, 1, 1, 0)
