@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://dwymr24cv1ql4" path="res://Assets/UI/StopWatch.png" id="1_u66o8"]
 [ext_resource type="FontFile" uid="uid://cl2ijrhyif4vb" path="res://Assets/Fonts/GilligansIsland-eJPm.ttf" id="2_svk0l"]
 
+[sub_resource type="Animation" id="Animation_pd1mw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StopWatch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_svk0l"]
 resource_name = "wiggle"
 length = 0.4
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.174533, 0.0, 0.174533, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_pd1mw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StopWatch:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pd1mw"]

@@ -73,6 +73,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [20.0, 20.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.298039)]
+}
 
 [sub_resource type="Animation" id="Animation_7k2af"]
 resource_name = "End"
@@ -320,6 +332,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1e-05)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.298039)]
+}
 
 [sub_resource type="Animation" id="Animation_7k211"]
 resource_name = "showtext"
@@ -334,6 +358,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.258816, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1e-05), Vector2(1, 1.325), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.68, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.52549)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7k2af"]
@@ -409,6 +445,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.298039)
 layout_mode = 1
 anchors_preset = 15

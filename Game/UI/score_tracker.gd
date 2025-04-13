@@ -45,7 +45,7 @@ func add_score():
 		var score_head = HEAD.instantiate()
 		add_child(score_head)
 		score_head.global_position = head_spawn.global_position
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(6).timeout
 		next_level()
 		if ticker == true:
 			score_head.ticker = true
@@ -65,7 +65,7 @@ func _on_timer_timeout() -> void:
 	var score_head = HEAD.instantiate()
 	add_child(score_head)
 	score_head.global_position = head_spawn.global_position
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(6).timeout
 	next_level()
 
 func next_level():
