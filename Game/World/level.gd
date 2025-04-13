@@ -10,7 +10,7 @@ extends Node2D
 @export var speed_difficulty = 0
 #@export var speed_randomness = 0.5
 
-@onready var eyes = $EyesOverlay
+@onready var eyes: Eyes = $EyesOverlay
 
 var game_active = false
 var all_pips = []
@@ -53,10 +53,17 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && game_active == true:
 		for pip: Pip in all_pips:
+			eyes.tracking = false
 			pip.stop()
 			$EndTimer.start()
-			#await get_tree().create_timer(1.0).timeout
-			
+		check_for_goblin(eyes.get_colliders())
+		
+
+func check_for_goblin(arr):
+	if arr.size() > 0:
+		for pip: Pip in arr:
+			print(pip.pipType)
+	pass
 
 func _on_eyes_overlay_eyes_open():
 	start_game()
@@ -64,4 +71,6 @@ func _on_eyes_overlay_eyes_open():
 
 func _on_end_timer_timeout():
 	eyes.blink.play("Close")
+	
+	#eyes.have_it()
 	pass # Replace with function body.
