@@ -231,7 +231,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -267,7 +267,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -279,7 +279,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xpodn"]
@@ -363,7 +363,6 @@ mouse_filter = 2
 color = Color(0.0593615, 0.139335, 0.127076, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
 z_index = 65
 material = SubResource("ShaderMaterial_v6bwl")
 layout_mode = 1
@@ -427,7 +426,6 @@ mouse_filter = 2
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(279, 378)
 rotation = 1.5708
-emitting = false
 amount = 40
 lifetime = 5.0
 preprocess = 2.0
@@ -438,7 +436,6 @@ process_material = SubResource("ParticleProcessMaterial_jeudw")
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(1005, 378)
 rotation = 1.5708
-emitting = false
 amount = 40
 lifetime = 5.0
 preprocess = 2.0

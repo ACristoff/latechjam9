@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 0.46)]
+"values": [Vector2(1, 1.005)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_khmkl"]
@@ -221,7 +221,7 @@ polygon = PackedVector2Array(326, 257, 421, 279, 475, 326, 509, 369, 544, 393, 3
 
 [node name="EyelidNormal" type="Node2D" parent="MouseFollow"]
 position = Vector2(-640, -360)
-scale = Vector2(1, 0.46)
+scale = Vector2(1, 1.005)
 
 [node name="Eyelid" type="Sprite2D" parent="MouseFollow/EyelidNormal"]
 position = Vector2(597, 360)

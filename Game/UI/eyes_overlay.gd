@@ -131,11 +131,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			label_3.pivot_offset = label.size/2
 
 func revelation():
-	blink.play("Close")
+	thought_bubble.begin()
 
 func _on_blink_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Close":
-		thought_bubble.begin()
+		pass
 		
 func _process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position().clamp(Vector2(500, 100), Vector2(780, 650))
