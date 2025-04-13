@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://byfco1g7ij4s" path="res://Game/Pip/base_pip.gd" id="1_lsf7d"]
 [ext_resource type="Texture2D" uid="uid://dkwbp1wa2kgvq" path="res://icon.svg" id="2_x37jf"]
-[ext_resource type="Texture2D" uid="uid://54x16g7uo63r" path="res://Assets/Sprites/Arms/Arms1.png" id="3_jghpp"]
 [ext_resource type="Texture2D" uid="uid://cnplc1wsqx6j0" path="res://Assets/Sprites/Blush/Blush.png" id="3_l0ufr"]
 [ext_resource type="Texture2D" uid="uid://37ri506mqd7q" path="res://Assets/Sprites/Ears/Ears1.png" id="4_l2a36"]
 [ext_resource type="Texture2D" uid="uid://brguh7aye8pd2" path="res://Assets/Sprites/Eyebrows/Eyebrows1.png" id="5_ebpev"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dybepewwaishv" path="res://Assets/Sprites/Eyes/Eyes1.png" id="7_o3yah"]
 [ext_resource type="Texture2D" uid="uid://o144fdyxhlqf" path="res://Assets/Sprites/Hair front/Hair Front 1/HairFront1.png" id="9_avyor"]
 [ext_resource type="Texture2D" uid="uid://cs42ufaytcwyo" path="res://Assets/Sprites/Body/Body.png" id="10_16adf"]
+[ext_resource type="Texture2D" uid="uid://dwg3cwjabh56v" path="res://Assets/Sprites/Arms/arms.png" id="10_u4lva"]
 [ext_resource type="Texture2D" uid="uid://dae6yoh71yi3f" path="res://Assets/Sprites/Pants/Pants1.png" id="12_2mkjk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad3bx"]
@@ -53,7 +53,7 @@ texture = ExtResource("7_o3yah")
 texture = ExtResource("9_avyor")
 
 [node name="ArmsSprite2D" type="Sprite2D" parent="ModularSprite"]
-texture = ExtResource("3_jghpp")
+texture = ExtResource("10_u4lva")
 
 [node name="PantsSprite2D" type="Sprite2D" parent="ModularSprite"]
 texture = ExtResource("12_2mkjk")

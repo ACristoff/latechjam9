@@ -55,7 +55,7 @@ var pipType: String = "none"
 	preload("res://Assets/Sprites/Hair front/Hair Front 3/HairFront3.png"),
 ]
 @onready var arms = [
-	preload("res://Assets/Sprites/Arms/Arms1.png"),
+	preload("res://Assets/Sprites/Arms/arms.png"),
 ]
 @onready var pants = [
 	preload("res://Assets/Sprites/Pants/Pants1.png"),
