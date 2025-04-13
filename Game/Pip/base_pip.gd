@@ -113,6 +113,24 @@ func _physics_process(delta):
 		if collision.get_collider().has_method("hit"):
 			collision.get_collider().hit()
 
+func riddled(type):
+	match type:
+		1:
+			eyes_sprite.texture = riddles[0]
+			eyebrows_sprite.texture = riddles[0]
+			mouth_sprite.texture = riddles[0]
+		2:
+			blush_sprite.texture = riddles[1]
+		3: 
+			eyebrows_sprite.texture = riddles[2]
+			eyes_sprite.texture = riddles[2]
+		4:
+			blush_sprite.texture = riddles[3]
+		5:
+			ears_sprite.texture = riddles[4]
+		6:
+			hair_sprite.texture = riddles[5]
+	pass
 
 func randomize_pip():
 	var body = bodies[randi_range(0, bodies.size() - 1)]

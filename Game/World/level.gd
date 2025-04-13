@@ -5,18 +5,26 @@ extends Node2D
 
 @export var riddle = "The quick brown fox jumps over the lazy dog"
 
-@export var riddles = []
+@export var riddles = [
+	"This goblin forgot deoderant",
+	"This goblin hates sunlight",
+	"This goblin is feeling frisky",
+	"This goblin is the cat's meow",
+	"This goblin is a good listener",
+	"This goblin might rawr X3 at you..."
+]
 
 @export var speed_difficulty = 0
 #@export var speed_randomness = 0.5
 
 @onready var eyes: Eyes = $EyesOverlay
-
+var random_riddle = randi_range(0,5)
 var game_active = false
 var all_pips = []
 
 
 func start_game():
+	
 	for civvies in civilian_count:
 		var new_pip = Pip.new_pip("civilian")
 		var random_direction = randi_range(0,359)
@@ -39,13 +47,15 @@ func start_game():
 	add_child(new_goblin)
 	new_goblin.sprite_parent.rotation = -random_direction
 	new_goblin.collision.rotation = -random_direction
-	new_goblin.sprite_parent.modulate = Color.GREEN
+	#new_goblin.sprite_parent.modulate = Color.GREEN
+	new_goblin.riddled(random_riddle)
 	all_pips.append(new_goblin)
 	game_active = true
 	pass
 
 
 func _ready():
+	eyes.thought_bubble.debug_phrase = riddles[random_riddle]
 	eyes.revelation()
 	pass
 
