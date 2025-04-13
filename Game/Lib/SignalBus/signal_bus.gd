@@ -5,3 +5,6 @@ extends Node
 
 signal pause_game
 signal game_state_changed(new_state)
+signal go_to_score
+signal add_score
+signal failed
