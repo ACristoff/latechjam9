@@ -22,12 +22,12 @@ const PIP_SCENE: PackedScene = preload("res://Game/Pip/base_pip.tscn")
 var pipType: String = "none"
 
 @onready var riddles = [
-	preload("res://Assets/GoblinRiddles/riddle1.png")
-	preload("res://Assets/GoblinRiddles/riddle2.png")
-	preload("res://Assets/GoblinRiddles/riddle3.png")
-	preload("res://Assets/GoblinRiddles/riddle4.png")
-	preload("res://Assets/GoblinRiddles/riddle5.png")
-	preload("res://Assets/GoblinRiddles/riddle6.png")
+	preload("res://Assets/GoblinRiddles/riddle1.png"),
+	preload("res://Assets/GoblinRiddles/riddle2.png"),
+	preload("res://Assets/GoblinRiddles/riddle3.png"),
+	preload("res://Assets/GoblinRiddles/riddle4.png"),
+	preload("res://Assets/GoblinRiddles/riddle5.png"),
+	preload("res://Assets/GoblinRiddles/riddle6.png"),
 ]
 
 @onready var bodies = [
