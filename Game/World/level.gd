@@ -20,6 +20,8 @@ func _ready():
 		add_child(new_pip)
 		new_pip.start(random_start, random_direction)
 		new_pip.sprite_parent.rotation = -random_direction
+		new_pip.randomize_pip()
+
 	var new_goblin = Pip.new_pip(goblin_type)
 	#Debug
 	
