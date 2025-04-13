@@ -14,7 +14,7 @@ func start():
 
 func _process(delta: float) -> void:
 	if time <= 0:
-		timer.stop
+		timer.stop()
 		print("lose con")
 		print(" call dont have it in eyes overlay")
 
