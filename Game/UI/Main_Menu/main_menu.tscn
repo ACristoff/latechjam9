@@ -7,6 +7,12 @@
 [ext_resource type="FontFile" uid="uid://dvm2yjkxfdb1h" path="res://Assets/Fonts/sanctuary.regular.ttf" id="3_nvbf8"]
 [ext_resource type="Shader" uid="uid://dluhyfmups6qu" path="res://Assets/Shaders/eyes_overlay.gdshader" id="4_iadss"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6bwl"]
+shader = ExtResource("4_iadss")
+shader_parameter/radius = 0.705
+shader_parameter/speed = 2.461
+shader_parameter/effect_color = Color(0, 0.25, 0.245833, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iadss"]
 resource_local_to_scene = true
 shader = ExtResource("3_2v1u4")
@@ -53,12 +59,6 @@ scale_max = 1.8
 color = Color(0.714368, 1, 0.757032, 1)
 color_initial_ramp = SubResource("GradientTexture1D_b7oqe")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6bwl"]
-shader = ExtResource("4_iadss")
-shader_parameter/radius = 0.705
-shader_parameter/speed = 2.461
-shader_parameter/effect_color = Color(0, 0.25, 0.245833, 1)
-
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -67,6 +67,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lbcms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 3880
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = 121.0
+offset_right = 127.0
+offset_bottom = 307.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jeudw")
+theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("3_nvbf8")
+theme_override_font_sizes/font_size = 121
+text = "Start
+"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jeudw")
+theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_nvbf8")
+theme_override_font_sizes/font_size = 76
+text = "Quit"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -79,6 +124,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2955
 layout_mode = 0
 offset_left = -7.0
 offset_top = 13.0
@@ -86,6 +132,35 @@ offset_right = 1313.0
 offset_bottom = 777.0
 mouse_filter = 2
 color = Color(0.0593615, 0.139335, 0.127076, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 65
+material = SubResource("ShaderMaterial_v6bwl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label4" type="Label" parent="."]
+z_index = 75
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.0
+offset_top = 45.0
+offset_right = 537.0
+offset_bottom = 189.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_nvbf8")
+theme_override_font_sizes/font_size = 156
+text = "The Goblin Assassin"
 
 [node name="EyesOverlay" parent="." instance=ExtResource("2_tocna")]
 script = null
@@ -136,80 +211,9 @@ randomness = 1.0
 trail_lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_jeudw")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_v6bwl")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-z_index = 3880
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -127.0
-offset_top = 121.0
-offset_right = 127.0
-offset_bottom = 307.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_jeudw")
-theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
-theme_override_constants/outline_size = 40
-theme_override_fonts/font = ExtResource("3_nvbf8")
-theme_override_font_sizes/font_size = 121
-text = "Start
-"
-
-[node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Settings"
-
-[node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Credits
-"
-
-[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_jeudw")
-theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/font = ExtResource("3_nvbf8")
-theme_override_font_sizes/font_size = 76
-text = "Quit"
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -536.0
-offset_top = 45.0
-offset_right = 537.0
-offset_bottom = 189.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.0588235, 0.137255, 0.12549, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/font = ExtResource("3_nvbf8")
-theme_override_font_sizes/font_size = 156
-text = "The Goblin Assassin"
-
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 
 [editable path="EyesOverlay"]
