@@ -53,9 +53,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && game_active == true:
 		for pip: Pip in all_pips:
+			eyes.tracking = false
 			pip.stop()
 			$EndTimer.start()
-			#await get_tree().create_timer(1.0).timeout
 			
 
 func _on_eyes_overlay_eyes_open():
@@ -64,4 +64,6 @@ func _on_eyes_overlay_eyes_open():
 
 func _on_end_timer_timeout():
 	eyes.blink.play("Close")
+	
+	#eyes.have_it()
 	pass # Replace with function body.

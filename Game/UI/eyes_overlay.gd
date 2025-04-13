@@ -28,6 +28,7 @@ var len3
 var have_mode = true
 var target_pos
 var speed = 250
+var tracking = true
 
 func _ready() -> void:
 	label.add_theme_font_override("font", load("res://Assets/Fonts/runic.otf"))
@@ -148,6 +149,6 @@ func _process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position().clamp(Vector2(500, 100), Vector2(780, 650))
 	var dejitter = 2
 	if Vector2i(mouse_follow.global_position).x > Vector2i(mouse_pos).x + dejitter|| Vector2i(mouse_follow.global_position).x < Vector2i(mouse_pos).x - dejitter || Vector2i(mouse_follow.global_position).y > Vector2i(mouse_pos).y + dejitter || Vector2i(mouse_follow.global_position).y < Vector2i(mouse_pos).y - dejitter:
-		
-		mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
+		if tracking == true:
+			mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
 	
