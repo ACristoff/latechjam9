@@ -10,6 +10,9 @@ var debug_phrase = "My skin is sensitive. Who am I?"
 func begin():
 	animation_player.play("Begin")
 	show_text_timer.start()
+	
+func end():
+	animation_player.play("End")
 
 func ready():
 	pass
