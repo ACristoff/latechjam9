@@ -69,6 +69,7 @@ func _on_timer_timeout() -> void:
 	next_level()
 
 func next_level():
+	SignalBus.hide_score.emit()
 	pass
 
 func _on_sound_time_timeout() -> void:

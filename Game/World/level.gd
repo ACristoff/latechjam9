@@ -24,8 +24,6 @@ var all_pips = []
 
 
 func start_game():
-	random_riddle = randi_range(0,5)
-
 	for civvies in civilian_count:
 		var new_pip = Pip.new_pip("civilian")
 		var random_direction = randi_range(0,359)
@@ -41,7 +39,6 @@ func start_game():
 
 	var new_goblin = Pip.new_pip(goblin_type)
 	#Debug
-	
 	var random_direction = randi_range(0,359)
 	var random_start = Vector2(randi_range(0, get_window().size.x), randi_range(0, get_window().size.y))
 	new_goblin.start(random_start, random_direction)
@@ -62,6 +59,7 @@ func _ready():
 	SignalBus.next_level.connect(start_game.bind())
 
 func wipe_board():
+	random_riddle = randi_range(0,5)
 	for pip: Pip in all_pips:
 		pip.queue_free()
 		speed_difficulty += 25
@@ -76,10 +74,10 @@ func _process(delta):
 			$EndTimer.start()
 		check_for_goblin(eyes.get_colliders())
 
-
 func check_for_goblin(arr):
 	if arr.size() > 0:
 		for pip: Pip in arr:
+			print(pip.pipType)
 			if pip.pipType == "goblin":
 				eyes.have_mode = true
 	print(eyes.have_mode)

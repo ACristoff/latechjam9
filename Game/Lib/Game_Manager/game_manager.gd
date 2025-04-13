@@ -34,10 +34,13 @@ func _ready() -> void:
 	SignalBus.game_state_changed.connect(change_scene.bind())
 	SignalBus.show_score.connect(on_show_score.bind())
 	SignalBus.game_state_changed.emit("Main")
+	SignalBus.hide_score.connect(on_hide_score.bind())
 
 func on_show_score():
 	score.visible = true
-	pass
+
+func on_hide_score():
+	score.visible = false
 
 func change_scene(new_state: String):
 	if debug_mode == true:
