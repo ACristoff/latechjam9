@@ -22,6 +22,7 @@ signal eyes_open
 @onready var rising: AudioStreamPlayer2D = $Rising
 @onready var have: AudioStreamPlayer2D = $HAVE
 @onready var dont: AudioStreamPlayer2D = $DONT
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var len2
 var len3
@@ -29,6 +30,7 @@ var have_mode = false
 var target_pos
 var speed = 250
 var tracking = true
+
 
 func _ready() -> void:
 	label.add_theme_font_override("font", load("res://Assets/Fonts/runic.otf"))
@@ -136,6 +138,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			label_2.pivot_offset = label.size/2
 			label_3.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
 			label_3.pivot_offset = label.size/2
+			await get_tree().create_timer(2).timeout
+			canvas_layer.visible = false
+			show_score()
 		else:
 			dont.play()
 			label.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
@@ -144,6 +149,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			label_2.pivot_offset = label.size/2
 			label_3.add_theme_font_override("font", load("res://Assets/Fonts/sanctuary.regular.ttf"))
 			label_3.pivot_offset = label.size/2
+			await get_tree().create_timer(2).timeout
+			canvas_layer.visible = false
+			show_score()
+
+func show_score():
+	pass
 
 func revelation():
 	thought_bubble.begin()
