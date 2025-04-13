@@ -299,6 +299,7 @@ visible_ratio = 0.0
 wait_time = 0.1
 
 [node name="Button" type="Button" parent="CanvasLayer/Label"]
+visible = false
 layout_mode = 0
 offset_left = -190.0
 offset_top = 533.0

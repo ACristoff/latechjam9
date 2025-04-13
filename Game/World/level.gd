@@ -37,5 +37,5 @@ func start_game():
 
 
 func _ready():
-	
+	eyes.revelation()
 	pass
