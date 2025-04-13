@@ -13,6 +13,8 @@ extends Node2D
 @onready var eyes = $EyesOverlay
 
 var game_active = false
+var all_pips = []
+
 
 func start_game():
 	for civvies in civilian_count:
@@ -26,6 +28,7 @@ func start_game():
 		new_pip.sprite_parent.rotation = -random_direction
 		new_pip.collision.rotation = -random_direction
 		new_pip.randomize_pip()
+		all_pips.append(new_pip)
 
 	var new_goblin = Pip.new_pip(goblin_type)
 	#Debug
@@ -37,6 +40,7 @@ func start_game():
 	new_goblin.sprite_parent.rotation = -random_direction
 	new_goblin.collision.rotation = -random_direction
 	new_goblin.sprite_parent.modulate = Color.GREEN
+	all_pips.append(new_goblin)
 	game_active = true
 	pass
 
@@ -47,10 +51,17 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		pass
-	pass
+	if Input.is_action_just_pressed("interact") && game_active == true:
+		for pip: Pip in all_pips:
+			pip.stop()
+			$EndTimer.start()
+			#await get_tree().create_timer(1.0).timeout
+			
 
 func _on_eyes_overlay_eyes_open():
 	start_game()
+	pass # Replace with function body.
+
+func _on_end_timer_timeout():
+	eyes.blink.play("Close")
 	pass # Replace with function body.

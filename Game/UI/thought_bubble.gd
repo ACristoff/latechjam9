@@ -7,17 +7,20 @@ extends Control
 
 var debug_phrase = "My skin is sensitive. Who am I?"
 
+var active = true
+
 func begin():
 	animation_player.play("Begin")
 	show_text_timer.start()
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && active == true:
 		label.visible = false
 		end()
 
 func end():
 	animation_player.play("End")
+	active = false
 
 func ready():
 	pass

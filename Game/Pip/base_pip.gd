@@ -74,7 +74,7 @@ var pipType: String = "none"
 
 
 static func new_pip(type: String) -> Pip:
-	print(type)
+	#print(type)
 	var new_pip: Pip = PIP_SCENE.instantiate()
 	new_pip.pipType = type
 	if type == "civilian":
@@ -96,8 +96,8 @@ func start(_position, _direction):
 	velocity = Vector2(speed, 0).rotated(rotation)
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("debug"):
-		stop()
+	#if Input.is_action_just_pressed("debug"):
+		#stop()
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://mgqqri0bunjy"]
 
-[ext_resource type="Script" uid="uid://da60k26ymgnx1" path="res://Game/UI/score.gd" id="1_iypsg"]
-[ext_resource type="Shader" uid="uid://0o2y0raaphr7" path="res://Assets/Shaders/blood.gdshader" id="2_0v4vc"]
+[ext_resource type="Script" path="res://Game/UI/score.gd" id="1_iypsg"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blood.gdshader" id="2_0v4vc"]
 [ext_resource type="Texture2D" uid="uid://ddylp1yaseifu" path="res://Assets/UI/DeadGoblin.png" id="2_iypsg"]
 [ext_resource type="PackedScene" uid="uid://che3pxt8fuc3h" path="res://Assets/Particles/blood_particls.tscn" id="3_6sgao"]
 
@@ -80,6 +80,8 @@ _data = {
 }
 
 [node name="Score" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 16
 continuous_cd = 1
 script = ExtResource("1_iypsg")
 
