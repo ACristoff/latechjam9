@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpnq6w7rd0t4s"]
+[gd_scene load_steps=27 format=3 uid="uid://cpnq6w7rd0t4s"]
 
 [ext_resource type="Script" uid="uid://4c3rd8dbgl06" path="res://Game/UI/Main_Menu/main_menu.gd" id="1_lbcms"]
 [ext_resource type="Theme" uid="uid://bntmjk2bdh7jq" path="res://Assets/Themes/buttons.tres" id="2_jeudw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://u2dwbqcvgxi2" path="res://Game/UI/Fire.gdshader" id="3_2v1u4"]
 [ext_resource type="FontFile" uid="uid://dvm2yjkxfdb1h" path="res://Assets/Fonts/sanctuary.regular.ttf" id="3_nvbf8"]
 [ext_resource type="Shader" uid="uid://dluhyfmups6qu" path="res://Assets/Shaders/eyes_overlay.gdshader" id="4_iadss"]
+[ext_resource type="AudioStream" uid="uid://cvwqno1888pxt" path="res://Assets/Audio/SFX/Ocular Oppression.mp3" id="7_nvbf8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v6bwl"]
 shader = ExtResource("4_iadss")
@@ -456,9 +457,6 @@ scale = Vector2(1, 0.21)
 [node name="GPUParticles2D" parent="EyesOverlay/CanvasLayer/ThoughtBubble" index="2"]
 process_material = SubResource("ParticleProcessMaterial_nvbf8")
 
-[node name="Label2" parent="EyesOverlay/CanvasLayer/ThoughtBubble" index="7"]
-visible = false
-
 [node name="Fire" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_iadss")
 layout_mode = 0
@@ -504,6 +502,10 @@ root_node = NodePath("../EyesOverlay/MouseFollow/EyelidNormal")
 libraries = {
 &"": SubResource("AnimationLibrary_xpodn")
 }
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nvbf8")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
