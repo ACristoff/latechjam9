@@ -138,7 +138,7 @@ func _on_blink_animation_finished(anim_name: StringName) -> void:
 		thought_bubble.begin()
 		
 func _process(delta: float) -> void:
-	var mouse_pos = get_global_mouse_position().clamp(Vector2(550, 110), Vector2(730, 640))
+	var mouse_pos = get_global_mouse_position().clamp(Vector2(500, 100), Vector2(780, 650))
 	var dejitter = 2
 	if Vector2i(mouse_follow.global_position).x > Vector2i(mouse_pos).x + dejitter|| Vector2i(mouse_follow.global_position).x < Vector2i(mouse_pos).x - dejitter || Vector2i(mouse_follow.global_position).y > Vector2i(mouse_pos).y + dejitter || Vector2i(mouse_follow.global_position).y < Vector2i(mouse_pos).y - dejitter:
 		

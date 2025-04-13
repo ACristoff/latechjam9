@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var civilian_count = 8
+@export var civilian_count = 12
 @export var goblin_type = 'goblin'
 
 @export var riddle = "The quick brown fox jumps over the lazy dog"
@@ -19,6 +19,7 @@ func _ready():
 		new_pip.speed += speed_fuzz
 		add_child(new_pip)
 		new_pip.start(random_start, random_direction)
+		new_pip.sprite_parent.rotation = -random_direction
 	var new_goblin = Pip.new_pip(goblin_type)
 	#Debug
 	
@@ -26,4 +27,5 @@ func _ready():
 	var random_start = Vector2(randi_range(0, get_window().size.x), randi_range(0, get_window().size.y))
 	new_goblin.start(random_start, random_direction)
 	add_child(new_goblin)
-	new_goblin.sprite.modulate = Color.GREEN
+	new_goblin.sprite_parent.rotation = -random_direction
+	new_goblin.sprite_parent.modulate = Color.GREEN
