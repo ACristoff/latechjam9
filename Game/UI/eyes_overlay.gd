@@ -46,6 +46,7 @@ func decider():
 		dont_have_it()
 
 func have_it():
+	$AudioStreamPlayer2D.stop()
 	have_mode = true
 	label.visible_ratio = 0
 	label_2.visible_ratio = 0
@@ -65,6 +66,7 @@ func have_it():
 	timer_1.start()
 	
 func dont_have_it():
+	$AudioStreamPlayer2D.stop()
 	have_mode = false
 	label.visible_ratio = 0
 	label_2.visible_ratio = 0
@@ -128,6 +130,7 @@ func _on_timer_3_timeout() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "End":
 		blink.play("Open")
+		$AudioStreamPlayer2D.play()
 		eyes_open.emit()
 	if anim_name == "Reveal":
 		if have_mode == true:
