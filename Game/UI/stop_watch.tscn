@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkclyp76i0ewn"]
+
+[ext_resource type="Script" uid="uid://nxiab0jsym00" path="res://Game/UI/stop_watch.gd" id="1_svk0l"]
+[ext_resource type="Texture2D" uid="uid://dwymr24cv1ql4" path="res://Assets/UI/StopWatch.png" id="1_u66o8"]
+[ext_resource type="FontFile" uid="uid://cl2ijrhyif4vb" path="res://Assets/Fonts/GilligansIsland-eJPm.ttf" id="2_svk0l"]
+
+[sub_resource type="Animation" id="Animation_svk0l"]
+resource_name = "wiggle"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StopWatch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.0, 0.174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pd1mw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StopWatch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pd1mw"]
+_data = {
+&"RESET": SubResource("Animation_pd1mw"),
+&"wiggle": SubResource("Animation_svk0l")
+}
+
+[node name="StopWatch" type="Node2D"]
+script = ExtResource("1_svk0l")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="StopWatch" type="Sprite2D" parent="."]
+position = Vector2(1193, 90)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_u66o8")
+offset = Vector2(-93.3333, 66.6667)
+
+[node name="Wiggle" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pd1mw")
+}
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.345
+anchor_right = 0.609
+anchor_bottom = 0.551
+offset_left = 1153.0
+offset_top = 58.0
+offset_right = 1235.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.3157, 0.77, 0.353558, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_svk0l")
+theme_override_font_sizes/font_size = 71
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
