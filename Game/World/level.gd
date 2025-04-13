@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var civilian_count = 12
+@export var civilian_count = 5
 @export var goblin_type = 'goblin'
 
 @export var riddle = "The quick brown fox jumps over the lazy dog"
@@ -18,13 +18,14 @@ extends Node2D
 #@export var speed_randomness = 0.5
 
 @onready var eyes: Eyes = $EyesOverlay
-var random_riddle = randi_range(0,5)
+var random_riddle = 0
 var game_active = false
 var all_pips = []
 
 
 func start_game():
-	
+	random_riddle = randi_range(0,5)
+
 	for civvies in civilian_count:
 		var new_pip = Pip.new_pip("civilian")
 		var random_direction = randi_range(0,359)
@@ -52,14 +53,19 @@ func start_game():
 	print(random_riddle, riddles[random_riddle])
 	all_pips.append(new_goblin)
 	game_active = true
-	pass
 
 
 func _ready():
 	eyes.thought_bubble.debug_phrase = riddles[random_riddle]
 	eyes.revelation()
-	#SignalBus.add_score.connect( )
-	pass
+	SignalBus.add_score.connect(wipe_board.bind())
+	SignalBus.next_level.connect(start_game.bind())
+
+func wipe_board():
+	for pip: Pip in all_pips:
+		pip.queue_free()
+		speed_difficulty += 25
+		civilian_count += 2
 
 
 func _process(delta):
@@ -69,6 +75,7 @@ func _process(delta):
 			pip.stop()
 			$EndTimer.start()
 		check_for_goblin(eyes.get_colliders())
+
 
 func check_for_goblin(arr):
 	if arr.size() > 0:
