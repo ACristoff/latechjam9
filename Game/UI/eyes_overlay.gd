@@ -25,7 +25,7 @@ signal eyes_open
 
 var len2
 var len3
-var have_mode = true
+var have_mode = false
 var target_pos
 var speed = 250
 var tracking = true
@@ -36,6 +36,13 @@ func _ready() -> void:
 	label_3.add_theme_font_override("font", load("res://Assets/Fonts/runic.otf"))
 
 var show_ratio
+
+func decider():
+	if have_mode == true:
+		have_it()
+	else:
+		dont_have_it()
+
 func have_it():
 	have_mode = true
 	label.visible_ratio = 0
@@ -160,7 +167,4 @@ func get_colliders():
 	if right.get_overlapping_bodies():
 		for body in right.get_overlapping_bodies():
 			arr.append(body)
-	
-	
-	prints('hello', arr)
 	return arr

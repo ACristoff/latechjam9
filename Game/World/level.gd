@@ -57,13 +57,13 @@ func _process(delta):
 			pip.stop()
 			$EndTimer.start()
 		check_for_goblin(eyes.get_colliders())
-		
 
 func check_for_goblin(arr):
 	if arr.size() > 0:
 		for pip: Pip in arr:
-			print(pip.pipType)
-	pass
+			if pip.pipType == "goblin":
+				eyes.have_mode = true
+	print(eyes.have_mode)
 
 func _on_eyes_overlay_eyes_open():
 	start_game()
@@ -71,6 +71,6 @@ func _on_eyes_overlay_eyes_open():
 
 func _on_end_timer_timeout():
 	eyes.blink.play("Close")
-	
+	eyes.decider()
 	#eyes.have_it()
 	pass # Replace with function body.
