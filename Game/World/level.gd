@@ -50,7 +50,7 @@ func start_game():
 	new_goblin.riddled(random_riddle)
 	print(random_riddle, riddles[random_riddle])
 	all_pips.append(new_goblin)
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(8).timeout
 	game_active = true
 
 
