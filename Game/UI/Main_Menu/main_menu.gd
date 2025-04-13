@@ -3,6 +3,7 @@ extends Control
 
 func _on_start_pressed():
 	SignalBus.game_state_changed.emit("Start")
+	print("start")
 
 func _on_settings_pressed():
 	SignalBus.game_state_changed.emit("Settings")
@@ -12,3 +13,4 @@ func _on_credits_pressed():
 
 func _on_quit_pressed():
 	SignalBus.game_state_changed.emit("Quit")
+	print("quit")

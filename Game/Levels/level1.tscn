@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm2hlcuynbbiy"]
+
+[ext_resource type="PackedScene" uid="uid://bm2es187n4lwv" path="res://Game/World/pip_world.tscn" id="1_e4fup"]
+
+[node name="PipWorld" instance=ExtResource("1_e4fup")]
+civilian_count = 5
