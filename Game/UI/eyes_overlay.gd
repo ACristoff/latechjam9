@@ -151,4 +151,16 @@ func _process(delta: float) -> void:
 	if Vector2i(mouse_follow.global_position).x > Vector2i(mouse_pos).x + dejitter|| Vector2i(mouse_follow.global_position).x < Vector2i(mouse_pos).x - dejitter || Vector2i(mouse_follow.global_position).y > Vector2i(mouse_pos).y + dejitter || Vector2i(mouse_follow.global_position).y < Vector2i(mouse_pos).y - dejitter:
 		if tracking == true:
 			mouse_follow.global_position += mouse_follow.global_position.direction_to(mouse_pos) * speed * delta
+
+func get_colliders():
+	var arr = []
+	if left.get_overlapping_bodies():
+		for body in left.get_overlapping_bodies():
+			arr.append(body)
+	if right.get_overlapping_bodies():
+		for body in right.get_overlapping_bodies():
+			arr.append(body)
 	
+	
+	prints('hello', arr)
+	return arr
