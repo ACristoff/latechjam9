@@ -4,3 +4,4 @@
 
 [node name="PipWorld" instance=ExtResource("1_e4fup")]
 civilian_count = 5
+riddle = "This goblin doesn't like the sun."

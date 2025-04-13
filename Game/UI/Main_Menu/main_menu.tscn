@@ -98,6 +98,7 @@ visible = false
 
 [node name="Fire" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_iadss")
+layout_mode = 0
 offset_left = 1290.0
 offset_top = -59.0
 offset_right = 1787.0
@@ -107,6 +108,7 @@ mouse_filter = 2
 
 [node name="Fire2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_iadss")
+layout_mode = 0
 offset_left = 563.0
 offset_top = -63.0
 offset_right = 1060.0
