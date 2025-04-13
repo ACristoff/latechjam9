@@ -456,6 +456,9 @@ scale = Vector2(1, 0.21)
 [node name="GPUParticles2D" parent="EyesOverlay/CanvasLayer/ThoughtBubble" index="2"]
 process_material = SubResource("ParticleProcessMaterial_nvbf8")
 
+[node name="Label2" parent="EyesOverlay/CanvasLayer/ThoughtBubble" index="7"]
+visible = false
+
 [node name="Fire" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_iadss")
 layout_mode = 0

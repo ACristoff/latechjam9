@@ -412,6 +412,9 @@ mouse_filter = 2
 [node name="GPUParticles2D" parent="CanvasLayer/ThoughtBubble" index="2"]
 process_material = SubResource("ParticleProcessMaterial_uf41v")
 
+[node name="Label2" parent="CanvasLayer/ThoughtBubble" index="7"]
+visible = false
+
 [node name="Demon" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_lagbl")
 pitch_scale = 0.7
