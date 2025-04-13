@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Eyes
+
 @onready var label: Label = $CanvasLayer/Label
 @onready var label_2: Label = $CanvasLayer/Label2
 @onready var label_3: Label = $CanvasLayer/Label3

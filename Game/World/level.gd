@@ -10,9 +10,9 @@ extends Node2D
 @export var speed_difficulty = 0
 #@export var speed_randomness = 0.5
 
+@onready var eyes = $EyesOverlay
 
-
-func _ready():
+func start_game():
 	for civvies in civilian_count:
 		var new_pip = Pip.new_pip("civilian")
 		var random_direction = randi_range(0,359)
@@ -32,4 +32,10 @@ func _ready():
 	new_goblin.start(random_start, random_direction)
 	add_child(new_goblin)
 	new_goblin.sprite_parent.rotation = -random_direction
-	new_goblin.sprite_parent.modulate = Color.GREEN
+	new_goblin.sprite_parent.modulate = Color.GREEN	
+	pass
+
+
+func _ready():
+	
+	pass
