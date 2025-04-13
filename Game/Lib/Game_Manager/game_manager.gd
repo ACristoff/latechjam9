@@ -35,6 +35,11 @@ func _ready() -> void:
 	SignalBus.show_score.connect(on_show_score.bind())
 	SignalBus.game_state_changed.emit("Main")
 	SignalBus.hide_score.connect(on_hide_score.bind())
+	SignalBus.new_level.connect(on_new_level.bind())
+
+func on_new_level():
+	var new_scene = Menu_Scenes.Start.instantiate()
+	game_host.add_child(new_scene)
 
 func on_show_score():
 	score.visible = true

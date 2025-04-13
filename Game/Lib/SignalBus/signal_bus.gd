@@ -10,3 +10,4 @@ signal hide_score
 signal add_score
 signal failed
 signal next_level
+signal new_level

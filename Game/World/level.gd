@@ -18,12 +18,13 @@ extends Node2D
 #@export var speed_randomness = 0.5
 
 @onready var eyes: Eyes = $EyesOverlay
-var random_riddle = 0
+var random_riddle = randi_range(0,5)
 var game_active = false
 var all_pips = []
 
 
 func start_game():
+	print('starting game haha')
 	for civvies in civilian_count:
 		var new_pip = Pip.new_pip("civilian")
 		var random_direction = randi_range(0,359)
@@ -49,6 +50,7 @@ func start_game():
 	new_goblin.riddled(random_riddle)
 	print(random_riddle, riddles[random_riddle])
 	all_pips.append(new_goblin)
+	await get_tree().create_timer(6).timeout
 	game_active = true
 
 
@@ -56,7 +58,12 @@ func _ready():
 	eyes.thought_bubble.debug_phrase = riddles[random_riddle]
 	eyes.revelation()
 	SignalBus.add_score.connect(wipe_board.bind())
-	SignalBus.next_level.connect(start_game.bind())
+	SignalBus.next_level.connect(kill_myself.bind() )
+	start_game()
+
+func kill_myself():
+	SignalBus.new_level.emit()
+	queue_free()
 
 func wipe_board():
 	random_riddle = randi_range(0,5)
@@ -68,6 +75,7 @@ func wipe_board():
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && game_active == true:
+		game_active = false
 		for pip: Pip in all_pips:
 			eyes.tracking = false
 			pip.stop()
@@ -83,7 +91,8 @@ func check_for_goblin(arr):
 	print(eyes.have_mode)
 
 func _on_eyes_overlay_eyes_open():
-	start_game()
+	#start_game()
+	pass
 
 func _on_end_timer_timeout():
 	eyes.blink.play("Close")
