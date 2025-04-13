@@ -39,3 +39,9 @@ func start_game():
 func _ready():
 	eyes.revelation()
 	pass
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("interact"):
+		pass
+	pass

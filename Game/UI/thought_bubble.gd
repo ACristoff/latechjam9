@@ -10,7 +10,11 @@ var debug_phrase = "My skin is sensitive. Who am I?"
 func begin():
 	animation_player.play("Begin")
 	show_text_timer.start()
-	
+
+func _process(delta):
+	if Input.is_action_just_pressed("interact"):
+		end()
+
 func end():
 	animation_player.play("End")
 
